@@ -30,7 +30,8 @@
         .guardado {
             width: 100%;
             height: 35px;
-            background-color: aqua;
+            background-color: var(--fondo);
+            color: aliceblue;
         }
 
         .guardado p {
@@ -41,22 +42,14 @@
 
         .resultados {
             height: 65px;
-            background-color: aqua;
+            background-color:var(--fondo);
         }
 
         h3 {
             text-align: end;
             font-size: xx-large;
             margin: 15px;
-        }
-
-        .memorias {
-            height: 27px;
-            background-color: red;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            gap: 2px;
-            padding: 3px;
+            color: aliceblue;
         }
 
         .grilla {
@@ -65,7 +58,7 @@
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
             gap: 2px;
-            background-color: beige;
+            background-color: var(--fondo);
             padding: 3px;
         }
 
@@ -74,10 +67,10 @@
             height: 100%;
             display: grid;
             justify-content: center;
-            background-color: aquamarine;
+            background-color: #797474;
             text-align: center;
             font-size: medium;
-
+            color: aliceblue;
         }
 
         .item .memoria {
@@ -128,7 +121,7 @@
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button" id="reset">CE</button>
+                    <button type="button" id="resetear">CE</button>
                 </div>
             </div>
             <div class="item">
@@ -251,7 +244,7 @@
 
     function variables() {
         var resultado = document.getElementById('resultado');
-        var reset = document.getElementById('reset');
+        var resetear = document.getElementById('resetear');
         var suma = document.getElementById('suma');
         var resta = document.getElementById('resta');
         var multiplicacion = document.getElementById('multiplicacion');
@@ -280,6 +273,9 @@
     }
     function limpiarPantalla() {
         resultado.textContent = "";
+    }
+    function guardadopantalla(primertermino,operacion){
+        guardado.textContent=primertermino + operacion
     }
     //eventos de click, añadir a resultado
     cero.onclick = function (e) {
@@ -317,63 +313,84 @@
     suma.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "+";
+        guardadopantalla(primertermino,operacion);
         limpiarPantalla();
     }
     resta.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "-";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     multiplicacion.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "*";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     division.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "/";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     porcentaje.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "%";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     unosobrex.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "1/x";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     xalcuadrado.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "x²";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     raizdex.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "√2";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     cambiosimbolo.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = "+/-";
+        guardadopantalla(primertermino,operacion)
         limpiarPantalla();
     }
     coma.onclick = function (e) {
         primertermino = resultado.textContent;
         operacion = ",";
-        limpiarPantalla();
+        resultado.textContent=primertermino + "." 
     }
     igual.onclick = function (e) {
-        operandob = resultado.textContent;
+        segundotermino = resultado.textContent;
         resolver();
+        guardadopantalla(primertermino,operacion)
     }
+    resetear.onclick = function (e) {
+        reset()
+    }
+    borradolinea.onclick=function (e) {
+        resultado.textContent = "";
+    }
+    borradotermino.onclick=function (e) {
+        resultado.textContent = resultado.textContent.slice(0,-1)
+    }
+
     //
     function reset() {
         resultado.textContent = "";
         primertermino = 0
         segundotermino = 0
         operacion = "";
+        guardado.textContent=""
     }
     function resolver() {
         var resultadofinal = 0
@@ -397,16 +414,16 @@
                 resultadofinal = 1 / parseFloat(primertermino)
                 break
             case "x²":
-                resultadofinal = pow(parseFloat(primertermino))
+                resultadofinal = Math.pow(parseFloat(primertermino),2)
                 break
             case "√2":
-                resultadofinal = Math.sqrt(pow(parseFloat(primertermino)))
+                resultadofinal = Math.sqrt(parseFloat(primertermino))
                 break
             case "+/-":
                 resultadofinal = parseFloat(primertermino) * -1
                 break
             case ",":
-                resultadofinal = parseFloat(primertermino), parseFloat(segundotermino)
+                resultadofinal = parseFloat(primertermino) + "." + parseFloat(segundotermino)
                 break
         }
         reset()
@@ -414,5 +431,4 @@
     }
 
 </script>
-
 </html>
