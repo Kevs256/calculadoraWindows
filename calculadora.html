@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            --fondo: black;
+            --teclas: red;
+            --numero: grey;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .pantalla {
+            width: 320px;
+            height: 435px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        .resultados {
+            height: 95px;
+            background-color: aqua;
+        }
+
+        h3 {
+            text-align: end;
+            font-size: xx-large;
+        }
+
+        .memorias {
+            height: 27px;
+            background-color: red;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 2px;
+            padding: 3px;
+        }
+
+        .grilla {
+            height: 310px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 2px;
+            background-color: beige;
+            padding: 3px;
+        }
+
+        .item {
+            display: grid;
+            justify-content: center; 
+            background-color: aquamarine;
+            text-align: center;
+            font-size: medium;
+
+        }
+
+        .item .memoria {
+            font-size: small;
+        }
+        button{
+            background: none;
+	        color: inherit;
+	        border: none;
+	        padding: 0;
+	        font: inherit;
+	        cursor: pointer;
+	        outline: inherit;
+        }
+        .bton{
+            display: flex;
+            align-items: center;
+        }
+        .item .numero{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pantalla">
+        <div class="resultados">
+            <h3>6174</h3>
+        </div>
+        <div class="memorias">
+            <div class="item memoria">
+                <div class="bton">
+                    <button type="button">MC</button>
+                </div>
+            </div>
+            <div class="item memoria">
+                <div class="bton">
+                    <button type="button">MR</button>
+                </div>
+            </div>
+            <div class="item memoria">
+                <div class="bton">
+                    <button type="button">M+</button>
+                </div>
+            </div>
+            <div class="item memoria">
+                <div class="bton">
+                    <button type="button">M-</button>
+                </div>
+            </div>
+            <div class="item memoria">
+                <div class="bton">
+                    <button type="button">MS</button>
+                </div>
+            </div>
+            <div class="item memoria">
+                <div class="bton">
+                    <button type="button">M"</button>
+                </div>
+            </div>
+        </div>
+        <div class="grilla">
+            <div class="item">
+                <div class="bton">
+                    <button type="button">%</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">CE</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">C</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">Del</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">1/x</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">x²</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">√x</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">/</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">7</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">8</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">9</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">*</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">4</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">5</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">6</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">-</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">1</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">2</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">3</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">+/-</button>
+                </div>
+            </div>
+            <div class="item numero">
+                <div class="bton">
+                    <button type="button">0</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">,</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="bton">
+                    <button type="button">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
