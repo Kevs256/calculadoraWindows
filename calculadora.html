@@ -22,19 +22,32 @@
 
         .pantalla {
             width: 320px;
-            height: 435px;
+            height: 400px;
             display: grid;
             grid-template-rows: auto 1fr auto;
         }
 
+        .guardado {
+            width: 100%;
+            height: 35px;
+            background-color: aqua;
+        }
+
+        .guardado p {
+            text-align: end;
+            margin: 5px;
+            padding: 10px;
+        }
+
         .resultados {
-            height: 95px;
+            height: 65px;
             background-color: aqua;
         }
 
         h3 {
             text-align: end;
             font-size: xx-large;
+            margin: 15px;
         }
 
         .memorias {
@@ -57,8 +70,10 @@
         }
 
         .item {
+            width: 100%;
+            height: 100%;
             display: grid;
-            justify-content: center; 
+            justify-content: center;
             background-color: aquamarine;
             text-align: center;
             font-size: medium;
@@ -68,185 +83,336 @@
         .item .memoria {
             font-size: small;
         }
-        button{
+
+        button {
             background: none;
-	        color: inherit;
-	        border: none;
-	        padding: 0;
-	        font: inherit;
-	        cursor: pointer;
-	        outline: inherit;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
         }
-        .bton{
+
+        .bton {
             display: flex;
             align-items: center;
+            width: 100%;
+            height: 100%;
         }
-        .item .numero{
+
+        .bton button {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item .numero {
             background-color: blueviolet;
         }
     </style>
 </head>
 
-<body>
+<body onload="variables()">
     <div class="pantalla">
-        <div class="resultados">
-            <h3>6174</h3>
+        <div class="guardado">
+            <p id="guardado"></p>
         </div>
-        <div class="memorias">
-            <div class="item memoria">
-                <div class="bton">
-                    <button type="button">MC</button>
-                </div>
-            </div>
-            <div class="item memoria">
-                <div class="bton">
-                    <button type="button">MR</button>
-                </div>
-            </div>
-            <div class="item memoria">
-                <div class="bton">
-                    <button type="button">M+</button>
-                </div>
-            </div>
-            <div class="item memoria">
-                <div class="bton">
-                    <button type="button">M-</button>
-                </div>
-            </div>
-            <div class="item memoria">
-                <div class="bton">
-                    <button type="button">MS</button>
-                </div>
-            </div>
-            <div class="item memoria">
-                <div class="bton">
-                    <button type="button">M"</button>
-                </div>
-            </div>
+        <div class="resultados">
+            <h3 id="resultado"></h3>
         </div>
         <div class="grilla">
             <div class="item">
                 <div class="bton">
-                    <button type="button">%</button>
+                    <button type="button" id="porcentaje">%</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">CE</button>
+                    <button type="button" id="reset">CE</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">C</button>
+                    <button type="button" id="borradolinea">C</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">Del</button>
+                    <button type="button" id="borradotermino">Del</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">1/x</button>
+                    <button type="button" id="unosobrex">1/x</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">x²</button>
+                    <button type="button" id="xalcuadrado">x²</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">√x</button>
+                    <button type="button" id="raizdex">√x</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">/</button>
+                    <button type="button" id="division">/</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">7</button>
+                    <button type="button" id="siete">7</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">8</button>
+                    <button type="button" id="ocho">8</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">9</button>
+                    <button type="button" id="nueve">9</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">*</button>
+                    <button type="button" id="multiplicacion">*</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">4</button>
+                    <button type="button" id="cuatro">4</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">5</button>
+                    <button type="button" id="cinco">5</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">6</button>
+                    <button type="button" id="seis">6</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">-</button>
+                    <button type="button" id="resta">-</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">1</button>
+                    <button type="button" id="uno">1</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">2</button>
+                    <button type="button" id="dos">2</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">3</button>
+                    <button type="button" id="tres">3</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">+</button>
+                    <button type="button" id="suma">+</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">+/-</button>
+                    <button type="button" id="cambiosimbolo">+/-</button>
                 </div>
             </div>
             <div class="item numero">
                 <div class="bton">
-                    <button type="button">0</button>
+                    <button type="button" id="cero">0</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">,</button>
+                    <button type="button" id="coma">,</button>
                 </div>
             </div>
             <div class="item">
                 <div class="bton">
-                    <button type="button">=</button>
+                    <button type="button" id="igual">=</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script>
+    var operacion = ""
+    var primertermino = 0
+    var segundotermino = 0
+
+    function variables() {
+        var resultado = document.getElementById('resultado');
+        var reset = document.getElementById('reset');
+        var suma = document.getElementById('suma');
+        var resta = document.getElementById('resta');
+        var multiplicacion = document.getElementById('multiplicacion');
+        var division = document.getElementById('division');
+        var igual = document.getElementById('igual');
+        var uno = document.getElementById('uno');
+        var dos = document.getElementById('dos');
+        var tres = document.getElementById('tres');
+        var cuatro = document.getElementById('cuatro');
+        var cinco = document.getElementById('cinco');
+        var seis = document.getElementById('seis');
+        var siete = document.getElementById('siete');
+        var ocho = document.getElementById('ocho');
+        var nueve = document.getElementById('nueve');
+        var cero = document.getElementById('cero');
+
+        var guardado = document.getElementById('guardado');
+        var porcentaje = document.getElementById('porcentaje');
+        var borradolinea = document.getElementById('borradolinea');
+        var borradotermino = document.getElementById('borradotermino');
+        var unosobrex = document.getElementById('unosobrex');
+        var xalcuadrado = document.getElementById('xalcuadrado');
+        var raizdex = document.getElementById('raizdex');
+        var cambiosimbolo = document.getElementById('cambiosimbolo');
+        var coma = document.getElementById('coma');
+    }
+    function limpiarPantalla() {
+        resultado.textContent = "";
+    }
+    //eventos de click, añadir a resultado
+    cero.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "0";
+    }
+    uno.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "1";
+    }
+    dos.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "2";
+    }
+    tres.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "3";
+    }
+    cuatro.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "4";
+    }
+    cinco.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "5";
+    }
+    seis.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "6";
+    }
+    siete.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "7";
+    }
+    ocho.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "8";
+    }
+    nueve.onclick = function (e) {
+        resultado.textContent = resultado.textContent + "9";
+    }
+    //se acabaron los numeros
+    //inicia las opraciones
+    suma.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "+";
+        limpiarPantalla();
+    }
+    resta.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "-";
+        limpiarPantalla();
+    }
+    multiplicacion.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "*";
+        limpiarPantalla();
+    }
+    division.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "/";
+        limpiarPantalla();
+    }
+    porcentaje.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "%";
+        limpiarPantalla();
+    }
+    unosobrex.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "1/x";
+        limpiarPantalla();
+    }
+    xalcuadrado.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "x²";
+        limpiarPantalla();
+    }
+    raizdex.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "√2";
+        limpiarPantalla();
+    }
+    cambiosimbolo.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = "+/-";
+        limpiarPantalla();
+    }
+    coma.onclick = function (e) {
+        primertermino = resultado.textContent;
+        operacion = ",";
+        limpiarPantalla();
+    }
+    igual.onclick = function (e) {
+        operandob = resultado.textContent;
+        resolver();
+    }
+    //
+    function reset() {
+        resultado.textContent = "";
+        primertermino = 0
+        segundotermino = 0
+        operacion = "";
+    }
+    function resolver() {
+        var resultadofinal = 0
+        switch (operacion) {
+            case "+":
+                resultadofinal = parseFloat(primertermino) + parseFloat(segundotermino)
+                break
+            case "-":
+                resultadofinal = parseFloat(primertermino) - parseFloat(segundotermino)
+                break
+            case "*":
+                resultadofinal = parseFloat(primertermino) * parseFloat(segundotermino)
+                break
+            case "/":
+                resultadofinal = parseFloat(primertermino) / parseFloat(segundotermino)
+                break
+            case "%":
+                resultadofinal = parseFloat(primertermino) / (100 * parseFloat(segundotermino))
+                break
+            case "1/x":
+                resultadofinal = 1 / parseFloat(primertermino)
+                break
+            case "x²":
+                resultadofinal = pow(parseFloat(primertermino))
+                break
+            case "√2":
+                resultadofinal = Math.sqrt(pow(parseFloat(primertermino)))
+                break
+            case "+/-":
+                resultadofinal = parseFloat(primertermino) * -1
+                break
+            case ",":
+                resultadofinal = parseFloat(primertermino), parseFloat(segundotermino)
+                break
+        }
+        reset()
+        resultado.textContent = resultadofinal
+    }
+
+</script>
 
 </html>
